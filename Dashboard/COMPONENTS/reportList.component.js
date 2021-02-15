@@ -8,7 +8,7 @@ Vue.component('report-list', {
     list: Array,      // See line 47 on index.html
     filterKey: String // See line 48 on index.html
   },
-  computed: {
+  computed: { 
     // computed functions are used to alter the list of data without actually starting the alteration
     filteredList: function () {
       // This function takes the list data, line 8, and filters all of the property values within the list object against the filtered key, line 9. it will then return the list items that contains the filtered key.

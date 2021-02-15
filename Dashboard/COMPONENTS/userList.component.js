@@ -16,7 +16,7 @@ Vue.component('user-list', {
       }
       return data;
     }
-  },
+  }, 
 
   methods:{
     openThisForm(form){

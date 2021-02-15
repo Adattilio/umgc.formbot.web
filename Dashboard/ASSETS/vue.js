@@ -9,7 +9,7 @@
   (global = global || self, global.Vue = factory());
 }(this, function () { 'use strict';
 
-  /*  */
+  /*  */ 
 
   var emptyObject = Object.freeze({});
 

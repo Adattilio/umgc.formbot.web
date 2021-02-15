@@ -15,7 +15,7 @@ Vue.component('form-list', {
             })
         }
         return data;
-      }
+      } 
     },
   
     methods:{

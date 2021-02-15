@@ -8,7 +8,7 @@ Vue.component('form-list', {
     list: Array,
     filterKey: String
   },
-  computed: {
+  computed: { 
       filteredForms: function () {
       var filterKey = this.filterKey && this.filterKey.toLowerCase();
       var data = this.list
