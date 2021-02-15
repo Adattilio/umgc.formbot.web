@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FormBot Dashboard</title>
+    <link type="text/css" rel="stylesheet" href="STYLES/master.css">
+    <link type="text/css" rel="stylesheet" href="STYLES/print.css">
+
+    <!-- TESXT DATA -->
+    <script src="TEST-DATA/GetFormList.JS"></script>
+    <script src="TEST-DATA/GetFormReportList.JS"></script>
+    <script src="TEST-DATA/GetUserList.JS"></script>
+
+    <!-- THis si the development version of vue, when we go live we will change this to the production -->
+    <script src="ASSETS/vue.js"></script>
+    <!-- MOments is a light weight quic way of handling dates: https://momentjs.com/-->
+    <script src="ASSETS/moment-with-locales.min.js"></script>
+    <!-- Axios is used to send request and recive response with rest: https://github.com/axios/axios-->
+    <!-- TODO: activate once web service is up
+        <script src="ASSETS/axios.min.js"></script> -->
+    <!-- Vue Grid goives us a drag and drap capability for adjusting layouts -->
+    <script src="ASSETS/vue-grid-layout.umd.min.js"></script>
+
+
+
+</head>
+<body>
+
+
+<main id="dashboard" class="app">
+    <header>Form Bot</header>
+    <article>
+        <Section>
+            {{about}}
+        </Section>
+    </article>
+
+                    
+    <article class="widget" id="formList">					
+        <header class="widgetTitle">
+            Form Search
+        </header>
+        <section  id="formManager">
+            <header class="title">Forms</header>
+            <input v-model="filterKey.forms" class="form-control" placeholder=" Input Search name, department, or work location"/>
+            <form-list
+                @open-my-form="openForm($event)"
+                :list="formList"
+                :filter-key="filterKey.forms">
+            </form-list>
+        </section>
+        <section  id="reportManager">            
+            <header class="title">Completed Forms</header>
+            <input v-model="filterKey.reports" class="form-control" placeholder=" Input Search name, department, or work location"/>
+            <report-list
+                @open-my-form="openForm($event)"
+                :list="reportList"
+                :filter-key="filterKey.reports">
+            </report-list>
+        </section>
+        <section  id="userManager">            
+            <header class="title">Users</header>
+            <input v-model="filterKey.users" class="form-control" placeholder=" Input Search name, department, or work location"/>
+            <user-list
+                @open-my-form="openForm($event)"
+                :list="userList"
+                :filter-key="filterKey.users">
+            </user-list>
+        </section>
+    </article>
+</main>
+
+<!-- Add link to your component here -->
+<script src="COMPONENTS/formList.component.js"></script>
+<script src="COMPONENTS/reportList.component.js"></script>
+<script src="COMPONENTS/userList.component.js"></script>
+
+<!-- Loading vue core-->
+<script src="vue.core.js"></script>
+</body>
+</html>

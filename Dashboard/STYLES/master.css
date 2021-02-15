@@ -1,0 +1,20 @@
+/* 1.0 General */
+/* 1.1 Fonts */
+HTML{font-size: 16px;}
+
+
+
+/* 1.2 buttens, links and other interactive elements */
+.btn{
+    padding: 10px 5px;
+    border-radius: 15px;
+    border: 1px solid #313030;
+    background-color: #313030;
+    color:#fff;
+    cursor: pointer;
+    display: inline-block
+}
+.btn:hover{
+    background-color: #fff;
+    color:#313030;}
+
