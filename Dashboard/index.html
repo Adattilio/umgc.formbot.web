@@ -19,28 +19,31 @@
         <script src="ASSETS/axios.min.js"></script> -->
     <!-- Vue Grid goives us a drag and drap capability for adjusting layouts -->
     <script src="ASSETS/vue-grid-layout.umd.min.js"></script>
-
-
-
 </head>
 <body>
 
 
 <main id="dashboard" class="app">
-    <header>Form Bot</header>
-    <article>
+    <header class="main">
+        <h1>{{title}}</h1>
+        <nav>
+            <div class="tab" v-on:click="toggleTabs(0)">About & Help Docs</div>
+            <div class="tab" v-on:click="toggleTabs(1)">Forms</div>
+            <div class="tab" v-on:click="toggleTabs(2)">Completed Forms</div>
+            <div class="tab" v-on:click="toggleTabs(3)" v-if="currentUser.role">Users</div>
+        </nav>
+    </header>
+    <article id="about" v-if="showManager == 0">
         <Section>
             <header>About the Dashboard</header>
-             {{about}}
+            {{about}}
         </Section>
     </article>
-
-                    
-    <article class="widget" id="formList">					
+    <article class="pannel" id="formManager" v-if="showManager == 1">
         <header class="widgetTitle">
             Form Search
         </header>
-        <section  id="formManager">
+        <section  id="formList">
             <header class="title">Forms</header>
             <input v-model="filterKey.forms" class="form-control" placeholder=" Input Search name, department, or work location"/>
             <form-list
@@ -49,6 +52,10 @@
                 :filter-key="filterKey.forms">
             </form-list>
         </section>
+        <section class="editor"></section>
+    </article>
+                    
+    <article class="pannel" id="formList" v-if="showManager == 2">
         <section  id="reportManager">            
             <header class="title">Completed Forms</header>
             <input v-model="filterKey.reports" class="form-control" placeholder=" Input Search name, department, or work location"/>
@@ -58,7 +65,9 @@
                 :filter-key="filterKey.reports">
             </report-list>
         </section>
-        <section  id="userManager">            
+    </article>
+    <article  class="pannel" id="userManager" v-if="showManager == 3">
+        <section  >            
             <header class="title">Users</header>
             <input v-model="filterKey.users" class="form-control" placeholder=" Input Search name, department, or work location"/>
             <user-list

@@ -3,13 +3,16 @@ new Vue({
     el: '#dashboard.app',
     // Data is your data for the app. it can be preloaded or empty
     data: {
+        title:"FormBot",
+        logo:"",
         about:"This app will give you a basic intro to VUE",
         formList:{},
         reportList:{},
         currentUser:{
             id:0,
             name:"",
-            toekn:""
+            toekn:"",
+            role: 1,
         },
         userList:{}, 
         filterKey:{
@@ -22,7 +25,7 @@ new Vue({
             data:{}
         },
         test:"nada",
-        show:false,
+        showManager:0,
 		error:[]
     },
     // you would use this to load data. for this you will not need to wory about it
@@ -53,6 +56,10 @@ new Vue({
     },
     // methods are functions that react to user action
     methods: {
+        toggleTabs(tab){
+            var self = this;
+            this.showManager = tab;
+        },
         openForm: function (formID){
             console.log("TEST")
             console.log("Form "+formID+" recived");
@@ -64,12 +71,7 @@ new Vue({
                 self.users.push(loadata);
                 self.userForm.name = "";
                 self.userForm.email = "";
-        },
-    	toggelInstructions(){
-    		var self = this;
-    		if (self.show === false){self.show = true;}
-    		else{self.show = false;}
-    	}
+        }
     }
 });
 

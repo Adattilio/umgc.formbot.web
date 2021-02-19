@@ -36,10 +36,10 @@ Vue.component('form-list', {
     }
   },
   template: `
-    <section id="formList" class="wrapper">
-        <article v-for="form in filteredForms" class="form cf">
+    <ul id="formList" class="wrapper">
+        <li v-for="form in filteredForms" class="form cf">
         {{form.name}} <div class="btn" @click="openThisForm(form)">Edit</div>
-        </article>
-    </section >
+        </li>
+    </ul >
   `
 })
