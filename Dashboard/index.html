@@ -3,12 +3,14 @@
 <head>
     <title>FormBot Dashboard</title>
     <link type="text/css" rel="stylesheet" href="STYLES/master.css">
+    <link type="text/css" rel="stylesheet" href="STYLES/theme.css">
     <link type="text/css" rel="stylesheet" href="STYLES/print.css">
 
     <!-- TESXT DATA -->
     <script src="TEST-DATA/GetFormList.JS"></script>
     <script src="TEST-DATA/GetFormReportList.JS"></script>
     <script src="TEST-DATA/GetUserList.JS"></script>
+    <script src="TEST-DATA/GetFormDetails2.JS"></script>
 
     <!-- THis si the development version of vue, when we go live we will change this to the production -->
     <script src="ASSETS/vue.js"></script>
@@ -39,36 +41,85 @@
             {{about}}
         </Section>
     </article>
+
     <article class="pannel" id="formManager" v-if="showManager == 1">
-        <header class="widgetTitle">
-            Form Search
+        <header class="title">
+            Form Manager
         </header>
-        <section  id="formList">
+        <section class="list">
             <header class="title">Forms</header>
             <input v-model="filterKey.forms" class="form-control" placeholder=" Input Search name, department, or work location"/>
+            <div class="btn" @click="openFormEditor('create','')">Create New Form</div>
             <form-list
-                @open-my-form="openForm($event)"
+                @openformreader="openForm($event)"
+                @openformeditor="openFormEditor('edit',$event)"
                 :list="formList"
                 :filter-key="filterKey.forms">
             </form-list>
         </section>
-        <section class="editor"></section>
+        <section class="editor">
+            <article v-if="formEditor.show">
+              <header>
+                <h2>Editor</h2>
+                <div class="btn" @click="addField">Add</div>
+              </header>
+              <section class="editMetaData">                  
+                <input v-model="formFieldMetaData.description"/>
+                <textarea v-model="formFieldMetaData.description"></textarea>
+                <select v-model="formFieldMetaData.type">
+                    <option value="input">Input</option>
+                    <option value="textarea">Textarea</option>
+                </select>
+              </section>
+              <section class="layout">
+                <grid-layout
+                    :layout.sync="form.fields"
+                    :col-num="12"
+                    :row-height="30"
+                    :is-draggable="true"
+                    :is-resizable="true"
+                    :is-mirrored="false"
+                    :vertical-compact="true"
+                    :margin="[10, 10]"
+                    :use-css-transforms="true"
+                >
+            
+                    <grid-item 
+                    v-for="field in form.fields"
+                    :x="field.x"
+                    :y="field.y"
+                    :w="field.w"
+                    :h="field.h"
+                    :i="field.i">
+                        {{field.name}}
+                        <div class="btn" @click="editFormFieldMetaData(field.name,field.description,field.type)">Edit</div>
+                        <div class="btn" @click="removeField(field.i)">Remove</div>
+                    </grid-item>
+                </grid-layout>
+            </section>
+            </article>
+        </section>
     </article>
                     
-    <article class="pannel" id="formList" v-if="showManager == 2">
-        <section  id="reportManager">            
-            <header class="title">Completed Forms</header>
+    <article class="pannel" id="reportManager" v-if="showManager == 2">
+        <header class="title">
+            Reports Manager
+        </header>
+        <section class="list">
             <input v-model="filterKey.reports" class="form-control" placeholder=" Input Search name, department, or work location"/>
             <report-list
-                @open-my-form="openForm($event)"
+                @openreportreader="openForm($event)"
+                @openreporteditor="openForm($event)"
                 :list="reportList"
                 :filter-key="filterKey.reports">
             </report-list>
         </section>
+        <section class="editor"></section>
     </article>
+
     <article  class="pannel" id="userManager" v-if="showManager == 3">
-        <section  >            
-            <header class="title">Users</header>
+        <header class="title">Users Manager</header>
+        <section class="list">
             <input v-model="filterKey.users" class="form-control" placeholder=" Input Search name, department, or work location"/>
             <user-list
                 @open-my-form="openForm($event)"
@@ -76,11 +127,13 @@
                 :filter-key="filterKey.users">
             </user-list>
         </section>
+        <section class="editor"></section>
     </article>
 </main>
 
 <!-- Add link to your component here -->
 <script src="COMPONENTS/formList.component.js"></script>
+<script src="COMPONENTS/FormEditor.component.js"></script>
 <script src="COMPONENTS/reportList.component.js"></script>
 <script src="COMPONENTS/userList.component.js"></script>
 

@@ -24,11 +24,13 @@ Vue.component('form-list', {
   },
 
   methods:{
-    openThisForm(form){
-      var self = this;
-      self.$emit('openMyForm',form.id);
-      console.log("FORM "+form.id+" SENT");
-    }
+    readForm(form){
+      this.$emit('openformreader',form.id);
+      
+    },
+    editForm(form){
+      this.$emit('openformeditor',form.id);
+    },
   },
   filters: {
     capitalize: function (str) {
@@ -38,7 +40,7 @@ Vue.component('form-list', {
   template: `
     <ul id="formList" class="wrapper">
         <li v-for="form in filteredForms" class="form cf">
-        {{form.name}} <div class="btn" @click="openThisForm(form)">Edit</div>
+        {{form.name}} <div class="btn" @click="readForm(form)">read</div> <div class="btn" @click="editForm(form)">Edit</div>
         </li>
     </ul >
   `
