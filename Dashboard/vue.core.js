@@ -7,6 +7,7 @@ new Vue({
         logo:"",
         about:"This app will give you a basic intro to VUE",
         form:{},
+        formDetails:{},
         formFieldMetaData:{
             name:"",
             description:"",
@@ -138,6 +139,8 @@ new Vue({
             const index = this.form.fields.map(item => item.i).indexOf(val);
             this.form.fields.splice(index, 1);
         },
+        saveFormDetails(){
+        },
         editFormFieldMetaData(i){
  //           var tempArray = form.fields;
             //Find index of specific object using findIndex method.
@@ -164,6 +167,11 @@ new Vue({
             this.form.fields[fieldIndex].required = this.formFieldMetaData.required;
 
             this.formFieldMetaData.show = false;
+
+            //  TODO: add save to DB
+        },
+        deleteForm(id){
+            //  TOFO: delete form & remove from data
         }
     }
 });

@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>FormBot Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="ASSETS/font-awesome-4.7.0/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="STYLES/master.css">
     <link type="text/css" rel="stylesheet" href="STYLES/theme.css">
     <link type="text/css" rel="stylesheet" href="STYLES/print.css">
@@ -71,17 +73,25 @@
                 <h2>Editor</h2>
                 <div class="btn" @click="addField">Add</div>
               </header>
-              <section class="editMetaData" v-if="formFieldMetaData.show">                  
-                <label>Field Name:</label><input v-model="formFieldMetaData.name"/><br/>
-                <!-- TODO: create valdiation call for unique name-->
-                <lable>Field Description:</lable><textarea v-model="formFieldMetaData.description"></textarea><br/>
-                <label>Field Type:</label><select v-model="formFieldMetaData.type">
-                    <option value="null">Select a field type...</option>
-                    <option value="input">Input</option>
-                    <option value="textarea">Textarea</option>
-                </select><br/>
-                <label>Required</label><input type="checkbox" id="checkbox" v-model="formFieldMetaData.required"><br/>
-                <div class="btn" @click="saveFieldMetaData(formFieldMetaData.i)">Save Field</div>
+              <section class="editMetaData" > 
+                  <section class="left form">
+                    <header>Form Details</header>
+                    <label>Form Name</label><input v-model="form.name"/><br/>
+                    <lable>Description</lable><textarea v-model="form.description"></textarea>
+                  </section>
+                  <section class="right fields" v-if="formFieldMetaData.show">
+                    <header>Field Metadata</header>
+                    <label>Field Name:</label><input v-model="formFieldMetaData.name"/><br/>
+                    <!-- TODO: create valdiation call for unique name-->
+                    <lable>Field Description:</lable><textarea v-model="formFieldMetaData.description"></textarea><br/>
+                    <label>Field Type:</label><select v-model="formFieldMetaData.type">
+                        <option value="null">Select a field type...</option>
+                        <option value="input">Input</option>
+                        <option value="textarea">Textarea</option>
+                    </select><br/>
+                    <label>Required</label><input type="checkbox" id="checkbox" v-model="formFieldMetaData.required"><br/>
+                    <div class="btn" @click="saveFieldMetaData(formFieldMetaData.i)">Update Field</div>
+                  </section> 
               </section>
               <section class="layout">
                 <grid-layout
