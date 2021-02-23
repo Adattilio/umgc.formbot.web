@@ -33,12 +33,8 @@ Vue.component('report-list', {
      *  
      *  please refer to https://vuejs.org/v2/style-guide/
      */
-    readReport(report){
-      this.$emit('openreportreader',report.id);
-      
-    },
     editReport(report){
-      this.$emit('openreporteditor',report.id);
+      this.$emit('openreportreader',report.id);
     },
     convertDate(d){
       var newD = moment(d).format("MMM Do YYYY");
@@ -55,7 +51,7 @@ Vue.component('report-list', {
   template: `
     <section id="formList" class="wrapper">
         <article v-for="report in filteredList" class="form cf">
-        {{report.name}} {{convertDate(report.created)}}<div class="btn" @click="readReport(report)">Read</div><div class="btn" @click="editReport(report)">Edit</div>
+        {{report.name}} {{convertDate(report.created)}} <div class="btn" @click="editReport(report)">Edit</div>
         </article>
     </section >
   `

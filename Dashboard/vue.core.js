@@ -19,11 +19,13 @@ new Vue({
         formList:{},
         helpArticleList:{},
         reportList:{},
+        report:{},
+        reportFieldIndex:0,
         currentUser:{
             id:0,
             name:"",
             toekn:"",
-            role: 1,
+            role: 1, // 0 = admin 1 = genral user
         },
         userList:{}, 
         filterKey:{
@@ -31,6 +33,11 @@ new Vue({
             forms:"",
             reports:"",
             helpArticles:""
+        },
+        showEditor:{
+            form:false,
+            report:false,
+            user:false
         },
         formEditor:{
             show:false,
@@ -73,7 +80,7 @@ new Vue({
             var self = this;
             this.showManager = tab;
         },
-        openFormEditor: function (action,formID){
+        openFormEditor(action,formID){
             switch(action){
                 case "create":
                     this.form = {
@@ -81,24 +88,25 @@ new Vue({
                         "description":"",
                         "activeIntent": true,
                         "fields":[]};
-                    this.formEditor.show = true;
+                    this.showEditor.form = true;
                     break;
                 case "edit":
                     this.form = form2.d;
-                    this.formEditor.show = true;
-                    this.formFieldIndex = this.form.fields.length;
-
-
-                    
+                    this.showEditor.form = true;
+                    this.formFieldIndex = this.form.fields.length;                    
                     break;
             }
             /*TODO : create axios call to get form details */
         },
+        openReportEditor(reportID){
+            this.report = report231.d;
+            this.showEditor.report = true;
+            this.reportFieldIndex = this.report.fields.length; 
+        },
         openForm: function (formID){
             console.log("TEST")
             console.log("Form "+formID+" recived");
-            this.formEditor.show = true;
-            
+            this.showEditor.form = true;            
         },
         addUser(loadata){
             var self = this;

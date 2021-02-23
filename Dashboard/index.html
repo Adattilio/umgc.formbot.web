@@ -10,9 +10,10 @@
 
     <!-- TESXT DATA -->
     <script src="TEST-DATA/GetFormList.JS"></script>
-    <script src="TEST-DATA/GetFormReportList.JS"></script>
+    <script src="TEST-DATA/GetReportList.JS"></script>
     <script src="TEST-DATA/GetUserList.JS"></script>
     <script src="TEST-DATA/GetFormDetails2.JS"></script>
+    <script src="TEST-DATA/GetReportDetails231.JS"></script>
     <script src="TEST-DATA/GetHelpArticleList.JS"></script>
 
     <!-- THis si the development version of vue, when we go live we will change this to the production -->
@@ -68,7 +69,7 @@
             </form-list>
         </section>
         <section class="editor display">
-            <article v-if="formEditor.show">
+            <article v-if="showEditor.form">
               <header>
                 <h2>Editor</h2>
                 <div class="btn" @click="addField">Add</div>
@@ -114,8 +115,11 @@
                     :h="field.h"
                     :i="field.i">
                         {{field.name}}
-                        <div class="btn" @click="editFormFieldMetaData(field.i)">Edit</div>
-                        <div class="btn" @click="removeField(field.i)">Remove</div>
+                        <div class="btn" @click="editFormFieldMetaData(field.i)" v-bind:title="'Edit field '+ field.name">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </div>
+                        <div class="btn" @click="removeField(field.i)" v-bind:title="'Delete field '+ field.name">
+                            <i class="fa fa-trash" aria-hidden="true" ></i></div>
                     </grid-item>
                 </grid-layout>
             </section>
@@ -127,16 +131,40 @@
         <header class="title">
             Reports Manager
         </header>
-        <section class="list">
+        <section class="list left">
             <input v-model="filterKey.reports" class="form-control" placeholder=" Input Search name, department, or work location"/>
             <report-list
-                @openreportreader="openForm($event)"
-                @openreporteditor="openForm($event)"
+                @openreportreader="openReportEditor($event)"
                 :list="reportList"
                 :filter-key="filterKey.reports">
             </report-list>
         </section>
-        <section class="editor"></section>
+        <section class="editor left">
+            <article v-if="showEditor.report">
+                <grid-layout
+                    :layout.sync="report.fields"
+                    :col-num="12"
+                    :row-height="30"
+                    :is-draggable="false"
+                    :is-resizable="false"
+                    :is-mirrored="false"
+                    :vertical-compact="true"
+                    :margin="[10, 10]"
+                    :use-css-transforms="true"
+                >
+                    <grid-item 
+                    v-for="r in report.fields"
+                    :x="r.x"
+                    :y="r.y"
+                    :w="r.w"
+                    :h="r.h"
+                    :i="r.i">
+                        {{r.name}}<br/>
+                        <input v-model="r.value"/>
+                    </grid-item>
+                </grid-layout>
+            </article>
+        </section>
     </article>
 
     <article  class="pannel" id="userManager" v-if="showManager == 3">

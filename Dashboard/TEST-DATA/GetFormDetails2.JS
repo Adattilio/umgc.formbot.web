@@ -1,3 +1,9 @@
+/* HTTP Mehtod: GET
+ * URL https://site/FormBot/getForm?id=2
+ * Header: 
+ * - token
+ */
+
 var form2 = {
     "type":"Form Detail",
     "d":{
