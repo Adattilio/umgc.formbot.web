@@ -12,14 +12,14 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":2,"h":2,"i":"0"
+                "x":0,"y":0,"w":6,"h":2,"i":"0"
             },            
             {
                 "id":13,
                 "name":"Second Member ID Number",
                 "required":false,
                 "description":"",
-                "x":0,"y":0,"w":5,"h":2,"i":"1"
+                "x":6,"y":0,"w":6,"h":2,"i":"1"
             },           
             {
                 "id":1,
@@ -27,7 +27,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"2"
+                "x":0,"y":2,"w":5,"h":2,"i":"2"
             },            
             {
                 "id":2,
@@ -35,7 +35,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"3"
+                "x":7,"y":2,"w":5,"h":2,"i":"3"
             },            
             {
                 "id":3,
@@ -43,7 +43,7 @@ var form2 = {
                 "required":false,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"4"
+                "x":5,"y":2,"w":2,"h":2,"i":"4"
             },            
             {
                 "id":4,
@@ -51,7 +51,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"5"
+                "x":0,"y":6,"w":12,"h":2,"i":"5"
             },            
             {
                 "id":5,
@@ -59,7 +59,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"6"
+                "x":0,"y":6,"w":12,"h":2,"i":"6"
             },            
             {
                 "id":6,
@@ -67,7 +67,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"7"
+                "x":0,"y":8,"w":12,"h":2,"i":"7"
             },            
             {
                 "id":7,
@@ -75,7 +75,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"8"
+                "x":6,"y":10,"w":6,"h":2,"i":"8"
             },            
             {
                 "id":8,
@@ -83,7 +83,7 @@ var form2 = {
                 "required":true,
                 "description":"Please enter in mm/dd/yyy",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"9"
+                "x":0,"y":12,"w":5,"h":2,"i":"9"
             },            
             {
                 "id":9,
@@ -91,7 +91,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"10"
+                "x":0,"y":14,"w":5,"h":2,"i":"10"
             },            
             {
                 "id":10,
@@ -99,7 +99,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"11"
+                "x":0,"y":4,"w":12,"h":2,"i":"11"
             },            
             {
                 "id":11,
@@ -107,7 +107,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"12"
+                "x":0,"y":16,"w":12,"h":4,"i":"12"
             },            
             {
                 "id":12,
@@ -115,7 +115,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"13"
+                "x":0,"y":20,"w":12,"h":5,"i":"13"
             },            
             {
                 "id":13,
@@ -123,7 +123,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"14"
+                "x":0,"y":25,"w":12,"h":5,"i":"14"
             },            
             {
                 "id":14,
@@ -131,7 +131,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"15"
+                "x":0,"y":30,"w":12,"h":5,"i":"15"
             },            
             {
                 "id":15,
@@ -139,7 +139,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"16"
+                "x":0,"y":35,"w":12,"h":4,"i":"16"
             },           
             {
                 "id":16,
@@ -147,7 +147,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"17"
+                "x":0,"y":39,"w":6,"h":2,"i":"17"
             },           
             {
                 "id":17,
@@ -155,7 +155,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"18"
+                "x":6,"y":39,"w":6,"h":2,"i":"18"
             },           
             {
                 "id":22,
@@ -163,7 +163,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"19"
+                "x":0,"y":41,"w":12,"h":2,"i":"19"
             },           
             {
                 "id":18,
@@ -171,7 +171,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"20"
+                "x":0,"y":43,"w":5,"h":2,"i":"20"
             },           
             {
                 "id":19,
@@ -179,7 +179,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"21"
+                "x":5,"y":43,"w":4,"h":2,"i":"21"
             },           
             {
                 "id":20,
@@ -187,7 +187,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"22"
+                "x":9,"y":43,"w":3,"h":2,"i":"22"
             },           
             {
                 "id":21,
@@ -195,7 +195,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"23"
+                "x":0,"y":45,"w":5,"h":2,"i":"23"
             },           
             {
                 "id":22,
@@ -203,7 +203,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"24"
+                "x":0,"y":47,"w":5,"h":2,"i":"24"
             },           
             {
                 "id":22,
@@ -211,7 +211,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"25"
+                "x":0,"y":49,"w":12,"h":5,"i":"25"
             },           
             {
                 "id":24,
@@ -219,7 +219,7 @@ var form2 = {
                 "required":true,
                 "description":"",
                 "type":"input",
-                "x":0,"y":0,"w":5,"h":2,"i":"26"
+                "x":9,"y":45,"w":3,"h":2,"i":"26"
             }
         ]
     }
