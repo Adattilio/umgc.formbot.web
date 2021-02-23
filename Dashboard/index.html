@@ -73,13 +73,13 @@
                 <h2>Editor</h2>
                 <div class="btn" @click="addField">Add</div>
               </header>
-              <section class="editMetaData" > 
+              <section id="editMetaData" class="cf" > 
                   <section class="left form">
                     <header>Form Details</header>
                     <label>Form Name</label><input v-model="form.name"/><br/>
                     <lable>Description</lable><textarea v-model="form.description"></textarea>
                   </section>
-                  <section class="right fields" v-if="formFieldMetaData.show">
+                  <section class="left field" v-if="formFieldMetaData.show">
                     <header>Field Metadata</header>
                     <label>Field Name:</label><input v-model="formFieldMetaData.name"/><br/>
                     <!-- TODO: create valdiation call for unique name-->
