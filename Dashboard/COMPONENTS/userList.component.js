@@ -9,6 +9,7 @@ Vue.component('user-list', {
     columns.forEach(function(key) {
       sortOrders[key] = 1;
     });
+    console.log(sortOrders);
     return {
       sortKey: "",
       sortOrders: sortOrders

@@ -57,19 +57,22 @@
                 :filter-key="filterKey.forms">
             </form-list>
         </section>
-        <section class="editor">
+        <section class="editor display">
             <article v-if="formEditor.show">
               <header>
                 <h2>Editor</h2>
                 <div class="btn" @click="addField">Add</div>
               </header>
-              <section class="editMetaData">                  
-                <input v-model="formFieldMetaData.description"/>
-                <textarea v-model="formFieldMetaData.description"></textarea>
-                <select v-model="formFieldMetaData.type">
+              <section class="editMetaData" v-if="formFieldMetaData.show">                  
+                <label>Field Name:</label><input v-model="formFieldMetaData.name"/>
+                <!-- TODO: create valdiation call for unique name-->
+                <lable>Field Description:</lable><textarea v-model="formFieldMetaData.description"></textarea>
+                <label>Field Type:</label><select v-model="formFieldMetaData.type">
+                    <option value="null">Select a field type...</option>
                     <option value="input">Input</option>
                     <option value="textarea">Textarea</option>
                 </select>
+                <div class="btn" @click="saveFieldMetaData(formFieldMetaData.i)">Save Field</div>
               </section>
               <section class="layout">
                 <grid-layout
@@ -92,7 +95,7 @@
                     :h="field.h"
                     :i="field.i">
                         {{field.name}}
-                        <div class="btn" @click="editFormFieldMetaData(field.name,field.description,field.type)">Edit</div>
+                        <div class="btn" @click="editFormFieldMetaData(field.i)">Edit</div>
                         <div class="btn" @click="removeField(field.i)">Remove</div>
                     </grid-item>
                 </grid-layout>

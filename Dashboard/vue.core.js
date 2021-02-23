@@ -10,8 +10,11 @@ new Vue({
         formFieldMetaData:{
             name:"",
             description:"",
-            type:""
+            type:"",
+            i:0,
+            show:false
         },
+        formFieldIndex:0,
         formList:{},
         reportList:{},
         currentUser:{
@@ -79,6 +82,7 @@ new Vue({
                 case "edit":
                     this.form = form2.d;
                     this.formEditor.show = true;
+                    this.formFieldIndex = this.form.fields.length;
                     break;
             }
             /*TODO : create axios call to get form details */
@@ -111,7 +115,7 @@ new Vue({
             y: yLoc,
             w: 4,
             h: 2,
-            i: self.form.fields,
+            i: self.formFieldIndex,
             id:self.form.fields.length + 1, // TODO neeed to think more about this one
             name:"field " + (self.form.fields.length + 1),
             required:true,
@@ -122,16 +126,36 @@ new Vue({
           console.log(field);
           this.form.fields.push(field);
           // Increment the counter to ensure key is always unique.
-          this.index++;
+          this.formFieldIndex++;
         },
         removeField: function (val) {
             const index = this.form.fields.map(item => item.i).indexOf(val);
             this.form.fields.splice(index, 1);
         },
-        editFormFieldMetaData(n, d, t){
-            this.formFieldMetaData.name = n;
-            this.formFieldMetaData.description = d;
-            this.formFieldMetaData.type = t;
+        editFormFieldMetaData(i){
+ //           var tempArray = form.fields;
+            //Find index of specific object using findIndex method.
+            console.log("IDEX: "+i);
+            fieldIndex = this.form.fields.findIndex((obj => obj.i == i));
+            console.log(this.form.fields);
+            console.log(this.form.fields[fieldIndex]);
+
+            this.formFieldMetaData.name = this.form.fields[fieldIndex].name;
+            this.formFieldMetaData.description = this.form.fields[fieldIndex].description;
+            this.formFieldMetaData.type = this.form.fields[fieldIndex].type;
+            this.formFieldMetaData.i = this.form.fields[fieldIndex].i;
+
+            this.formFieldMetaData.show = true;
+
+        },
+        saveFieldMetaData(i){  
+            fieldIndex = this.form.fields.findIndex((obj => obj.i == i));
+
+            this.form.fields[fieldIndex].name = this.formFieldMetaData.name;
+            this.form.fields[fieldIndex].description = this.formFieldMetaData.description;
+            this.form.fields[fieldIndex].type = this.formFieldMetaData.type;
+
+            this.formFieldMetaData.show = false;
         }
     }
 });
