@@ -16,6 +16,7 @@ new Vue({
         },
         formFieldIndex:0,
         formList:{},
+        helpArticleList:{},
         reportList:{},
         currentUser:{
             id:0,
@@ -27,7 +28,8 @@ new Vue({
         filterKey:{
             users:"",
             forms:"",
-            reports:""
+            reports:"",
+            helpArticles:""
         },
         formEditor:{
             show:false,
@@ -43,6 +45,7 @@ new Vue({
         self.formList = formList.d;
         self.userList = userList.d;
         self.reportList = getFormReportList.d;
+        self.helpArticleList = helpArticleList.d;
     
     /*  TODO: build once Web Service is up 
 
@@ -83,6 +86,9 @@ new Vue({
                     this.form = form2.d;
                     this.formEditor.show = true;
                     this.formFieldIndex = this.form.fields.length;
+
+
+                    
                     break;
             }
             /*TODO : create axios call to get form details */
@@ -143,6 +149,7 @@ new Vue({
             this.formFieldMetaData.name = this.form.fields[fieldIndex].name;
             this.formFieldMetaData.description = this.form.fields[fieldIndex].description;
             this.formFieldMetaData.type = this.form.fields[fieldIndex].type;
+            this.formFieldMetaData.required = this.form.fields[fieldIndex].required;
             this.formFieldMetaData.i = this.form.fields[fieldIndex].i;
 
             this.formFieldMetaData.show = true;
@@ -154,6 +161,7 @@ new Vue({
             this.form.fields[fieldIndex].name = this.formFieldMetaData.name;
             this.form.fields[fieldIndex].description = this.formFieldMetaData.description;
             this.form.fields[fieldIndex].type = this.formFieldMetaData.type;
+            this.form.fields[fieldIndex].required = this.formFieldMetaData.required;
 
             this.formFieldMetaData.show = false;
         }

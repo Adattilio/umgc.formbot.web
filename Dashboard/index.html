@@ -11,6 +11,7 @@
     <script src="TEST-DATA/GetFormReportList.JS"></script>
     <script src="TEST-DATA/GetUserList.JS"></script>
     <script src="TEST-DATA/GetFormDetails2.JS"></script>
+    <script src="TEST-DATA/GetHelpArticleList.JS"></script>
 
     <!-- THis si the development version of vue, when we go live we will change this to the production -->
     <script src="ASSETS/vue.js"></script>
@@ -40,6 +41,13 @@
             <header>About the Dashboard</header>
             {{about}}
         </Section>
+        <section>
+            <header>Help Articles</header>
+            <help-articles-list
+                :list="helpArticleList"
+                :filter-key="filterKey.helpArticles">
+            </help-articles-list>
+        </section>
     </article>
 
     <article class="pannel" id="formManager" v-if="showManager == 1">
@@ -64,14 +72,15 @@
                 <div class="btn" @click="addField">Add</div>
               </header>
               <section class="editMetaData" v-if="formFieldMetaData.show">                  
-                <label>Field Name:</label><input v-model="formFieldMetaData.name"/>
+                <label>Field Name:</label><input v-model="formFieldMetaData.name"/><br/>
                 <!-- TODO: create valdiation call for unique name-->
-                <lable>Field Description:</lable><textarea v-model="formFieldMetaData.description"></textarea>
+                <lable>Field Description:</lable><textarea v-model="formFieldMetaData.description"></textarea><br/>
                 <label>Field Type:</label><select v-model="formFieldMetaData.type">
                     <option value="null">Select a field type...</option>
                     <option value="input">Input</option>
                     <option value="textarea">Textarea</option>
-                </select>
+                </select><br/>
+                <label>Required</label><input type="checkbox" id="checkbox" v-model="formFieldMetaData.required"><br/>
                 <div class="btn" @click="saveFieldMetaData(formFieldMetaData.i)">Save Field</div>
               </section>
               <section class="layout">

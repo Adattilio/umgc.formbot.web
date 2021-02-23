@@ -11,6 +11,7 @@ var form2 = {
                 "name":"Member ID Number",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":2,"h":2,"i":"0"
             },            
             {
@@ -25,6 +26,7 @@ var form2 = {
                 "name":"Patient Last Name",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"2"
             },            
             {
@@ -32,6 +34,7 @@ var form2 = {
                 "name":"Patient First Name",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"3"
             },            
             {
@@ -39,6 +42,7 @@ var form2 = {
                 "name":"Patient Middel Initial",
                 "required":false,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"4"
             },            
             {
@@ -46,6 +50,7 @@ var form2 = {
                 "name":"Patient Street address",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"5"
             },            
             {
@@ -53,6 +58,7 @@ var form2 = {
                 "name":"Patient city",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"6"
             },            
             {
@@ -60,6 +66,7 @@ var form2 = {
                 "name":"Patient State",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"7"
             },            
             {
@@ -67,6 +74,7 @@ var form2 = {
                 "name":"Patient zip",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"8"
             },            
             {
@@ -74,6 +82,7 @@ var form2 = {
                 "name":"Patient Date of Birth",
                 "required":true,
                 "description":"Please enter in mm/dd/yyy",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"9"
             },            
             {
@@ -81,6 +90,7 @@ var form2 = {
                 "name":"Patient Gender",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"10"
             },            
             {
@@ -88,6 +98,7 @@ var form2 = {
                 "name":"Patient Email",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"11"
             },            
             {
@@ -95,6 +106,7 @@ var form2 = {
                 "name":"Medical Allergies",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"12"
             },            
             {
@@ -102,6 +114,7 @@ var form2 = {
                 "name":"Medical Conditions",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"13"
             },            
             {
@@ -109,6 +122,7 @@ var form2 = {
                 "name":"Over-the-counter/herbal medications taken regularly",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"14"
             },            
             {
@@ -116,6 +130,7 @@ var form2 = {
                 "name":"Notes to pharmacy",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"15"
             },            
             {
@@ -123,6 +138,7 @@ var form2 = {
                 "name":"Prescribing Physician Name",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"16"
             },           
             {
@@ -130,6 +146,7 @@ var form2 = {
                 "name":"Physician Phone Number with Area Code",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"17"
             },           
             {
@@ -137,6 +154,7 @@ var form2 = {
                 "name":"Physician Fax Number with Area Code",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"18"
             },           
             {
@@ -144,6 +162,7 @@ var form2 = {
                 "name":"Physician Street Address",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"19"
             },           
             {
@@ -151,6 +170,7 @@ var form2 = {
                 "name":"Physician City",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"20"
             },           
             {
@@ -158,6 +178,7 @@ var form2 = {
                 "name":"Physician State",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"21"
             },           
             {
@@ -165,6 +186,7 @@ var form2 = {
                 "name":"Physician Zipcode",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"22"
             },           
             {
@@ -172,6 +194,7 @@ var form2 = {
                 "name":"NPI",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"23"
             },           
             {
@@ -179,6 +202,7 @@ var form2 = {
                 "name":"DEA",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"24"
             },           
             {
@@ -186,6 +210,7 @@ var form2 = {
                 "name":"Prescription Details",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"25"
             },           
             {
@@ -193,6 +218,7 @@ var form2 = {
                 "name":"Refills",
                 "required":true,
                 "description":"",
+                "type":"input",
                 "x":0,"y":0,"w":5,"h":2,"i":"26"
             }
         ]
