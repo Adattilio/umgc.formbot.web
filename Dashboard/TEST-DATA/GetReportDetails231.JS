@@ -1,5 +1,6 @@
-/* HTTP Mehtod: GET
- * URL https://site/FormBot/getReport?id=2
+/* REST API
+ * HTTP Mehtod: GET
+ * URL https://site/api/getReport?id=231
  * Header: 
  * - token
  */

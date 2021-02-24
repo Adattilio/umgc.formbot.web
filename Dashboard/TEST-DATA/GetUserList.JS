@@ -1,4 +1,11 @@
-var userList = {
+/* REST API
+ * HTTP Mehtod: GET
+ * URL https://site/api/getUsers
+ * Header: 
+ * - token
+ */
+
+ var userList = {
     "type":"User List",
     "d":[ 
         {

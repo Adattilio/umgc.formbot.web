@@ -1,3 +1,10 @@
+/* REST API
+ * HTTP Mehtod: GET
+ * URL https://site/api/getHelpArticles
+ * Header: 
+ * - token
+ */
+
 var helpArticleList = {
     "type":"Help Article List",
     "d":[ 

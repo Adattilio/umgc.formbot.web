@@ -1,44 +1,54 @@
 Vue.component('report-list', {
-/* Use this file as a template for building your list component.
- * The Prop is incoming data: 
- * - https://vuejs.org/v2/guide/components-props.html
- * 
- */
   props: {
-    list: Array,      // See line 47 on index.html
-    filterKey: String // See line 48 on index.html
+    list: Array,      
+    searchKey: String 
   },
-  computed: { 
-    // computed functions are used to alter the list of data without actually starting the alteration
-    filteredList: function () {
-      // This function takes the list data, line 8, and filters all of the property values within the list object against the filtered key, line 9. it will then return the list items that contains the filtered key.
-      var filterKey = this.filterKey && this.filterKey.toLowerCase();
-      var data = this.list
-      if (filterKey) {
+  data: function() {
+    var sortOrders = {};
+    var columns = ['name','created'];
+    columns.forEach(function(key) {
+      sortOrders[key] = 1;
+    });
+    console.log(sortOrders);
+    return {
+      sortKey: "",
+      sortOrders: sortOrders
+    };
+  },
+  computed: {
+    filteredList() {
+      var sortKey = this.sortKey;
+      var searchKey = this.searchKey && this.searchKey.toLowerCase();
+      var order = this.sortOrders[sortKey] || 1;
+      var data = this.list;
+      if (searchKey) {
           data = data.filter(function (row) {
             return Object.keys(row).some(function (key) {
-              return String(row[key]).toLowerCase().indexOf(filterKey) > -1;
+              return String(row[key]).toLowerCase().indexOf(searchKey) > -1;
             })
           })
       }
+      if (sortKey) {
+        data = data.slice().sort(function(a, b) {
+          a = a[sortKey];
+          b = b[sortKey];
+          return (a === b ? 0 : a > b ? 1 : -1) * order;
+        });
+      }
       return data;
     }
-  },
-
+  }, 
   methods:{
-    /* this is where you will build you methods for the component
-     * there are a few wys to write each method 
-     *  - functionName(){}
-     *  - fucntionName: function(){}
-     *  
-     *  please refer to https://vuejs.org/v2/style-guide/
-     */
     editReport(report){
       this.$emit('openreportreader',report.id);
     },
     convertDate(d){
       var newD = moment(d).format("MMM Do YYYY");
       return newD;
+    },
+    sortBy(key) {
+      this.sortKey = key;
+      this.sortOrders[key] = this.sortOrders[key] * -1;
     }
   },
   filters: {
@@ -49,10 +59,23 @@ Vue.component('report-list', {
   },
   // the template section is where you write your html hat you want to insert into the index.html. You will need to use the grave accent ( ` ) [Also know as the back-tic, backquote, inverted comma, and quasiquote] to open and close the template. 
   template: `
-    <section id="formList" class="wrapper">
-        <article v-for="report in filteredList" class="form cf">
-        {{report.name}} {{convertDate(report.created)}} <div class="btn" @click="editReport(report)">Edit</div>
-        </article>
-    </section >
+  <table id="userList" class="wrapper">
+      <tr>
+        <th @click="sortBy('name')" :class="{ active: sortKey == 'name' }">
+          Form Name
+          <span class="arrow" :class="sortOrders['name'] > 0 ? 'asc' : 'dsc'"></span>
+        </th>
+        <th @click="sortBy('created')" :class="{ active: sortKey == 'created' }">
+          Date Created
+          <span class="arrow" :class="sortOrders['created'] > 0 ? 'asc' : 'dsc'"></span>
+        </th>
+        <th>ACTION</th>
+      </tr>
+      <tr v-for="report in filteredList" class="form cf">
+        <td>{{report.name}}</td>
+        <td>{{convertDate(report.created)}}</td>
+        <td><div class="btn" @click="editReport(form)">Edit</div></td>
+      </tr>
+  </table >
   `
 })

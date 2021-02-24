@@ -1,4 +1,11 @@
-var formList = {
+/* REST API
+ * HTTP Mehtod: GET
+ * URL https://site/api/getForms
+ * Header: 
+ * - token
+ */
+
+ var formList = {
     "type":"Form List",
     "d":[ 
         {
